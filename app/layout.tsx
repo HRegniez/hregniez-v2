@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Khula} from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { Section } from "@/components/Section";
+import { Nav } from "@/components/Nav";
 
 const khula = Khula({ 
   subsets: ["latin"], 
@@ -23,15 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-screen">
       <body className={`"${khula.className} h-screen bg-background text-foreground"`}>
-        <header className="flex justify-between w-full">
-          <div className="flex justify-between ">
+        <header className="w-full">
+          <Section className="flex justify-between w-full p-4">
             <h1>HRegniez</h1>
-            <nav>
-              <Link href="/">Home</Link>
-              <Link href="/about">About</Link>
-              <Link href="/projects">Projects</Link>
-            </nav>
-          </div>
+            <Nav />
+          </Section>
         </header>
         {children}
       </body>
