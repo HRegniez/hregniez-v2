@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BackgroundBeams } from "@/components/magic-ui/BackgroundBeams";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <h1>Main Title</h1>
       <h2>Sub title</h2>
       <p>Paragraph</p>
+      <BackgroundBeams />
     </main>
   );
 }

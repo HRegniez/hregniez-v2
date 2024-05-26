@@ -26,12 +26,14 @@ export default function RootLayout({
     <html lang="en" className="h-screen">
       <body className={`"${khula.className} h-screen bg-background text-foreground"`}>
         <header className="w-full">
-          <Section className="flex justify-between w-full p-4">
-            <h1>HRegniez</h1>
+          <Section className="flex justify-between p-4">
+            <h1 className="p-2">HRegniez</h1>
             <Nav />
           </Section>
         </header>
-        {children}
+        <Section>
+          {children}
+        </Section>
       </body>
     </html>
   );

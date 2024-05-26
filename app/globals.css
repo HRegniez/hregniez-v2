@@ -11,25 +11,26 @@
       --font-sec: "Overpass", sans-serif;
       --font-tert: "Alegreya", sans-serif;
 
-      --background: 249 51% 4%;
-      --foreground: 249 31% 100%;
-      --muted: 249 29% 12%;
-      --muted-foreground: 249 2% 61%;
-      --popover: 249 51% 4%;
-      --popover-foreground: 249 31% 100%;
-      --card: 249 51% 4%;
-      --card-foreground: 249 31% 100%;
-      --border: 249 6% 12%;
-      --input: 249 6% 12%;
-      --primary: 249 63% 27%;
-      --primary-foreground: 249 63% 87%;
-      --secondary: 38.73 100% 62.94%;
-      --secondary-foreground: 249 53.64% 4.67%;
-      --accent: 249 6% 13%;
-      --accent-foreground: 249 6% 73%;
-      --destructive: 8 88% 47%;
-      --destructive-foreground: 0 0% 100%;
-      --ring: 249 63% 27%;
+      --background: 270 50% 7%; /* Darker Purple */
+      --foreground: 270 30% 80%; /* Darker Light Purple */
+      --muted: 270 25% 10%; /* Darker Muted Dark Purple */
+      --muted-foreground: 270 5% 60%; /* Darker Muted Light Purple */
+      --popover: 270 50% 7%; /* Darker Purple */
+      --popover-foreground: 270 30% 80%; /* Darker Light Purple */
+      --card: 270 50% 7%; /* Darker Purple */
+      --card-foreground: 270 30% 80%; /* Darker Light Purple */
+      --border: 270 10% 15%; /* Darker Border Purple */
+      --input: 270 10% 15%; /* Darker Input Purple */
+      --primary: 270 60% 25%; /* Darker Primary Purple */
+      --primary-foreground: 270 60% 70%; /* Darker Primary Light Purple */
+      --secondary: 40 100% 50%; /* Bright Yellow */
+      --secondary-foreground: 270 50% 7%; /* Darker Dark Purple */
+      --accent: 270 10% 20%; /* Darker Accent Purple */
+      --accent-foreground: 270 10% 65%; /* Darker Accent Light Purple */
+      --destructive: 0 80% 40%; /* Bright Red */
+      --destructive-foreground: 0 0% 100%; /* White */
+      --ring: 270 60% 25%; /* Darker Ring Purple */
+      --radius: 0.5rem; /* Border Radius */
     }
   }
 

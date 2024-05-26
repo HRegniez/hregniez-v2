@@ -4,9 +4,9 @@ import { Button } from "./ui/button";
 
 export const Nav = () => {
   return (
-    <nav>
+    <nav className="flex justify-between gap-4">
       <Button variant="outline"><Link href="/">Home</Link></Button>
-      <Button ><Link href="/about">About</Link></Button>
+      <Button ><Link href="/profile">About</Link></Button>
       <Button variant="destructive"><Link href="/projects">Projects</Link></Button>
     </nav>
   );
