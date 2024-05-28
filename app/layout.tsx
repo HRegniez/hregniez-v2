@@ -24,16 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-screen">
-      <body className={`"${khula.className} h-screen bg-background text-foreground"`}>
+      <body className={`"${khula.className} bg-background text-foreground"`}>
         <header className="w-full">
           <Section className="flex justify-between py-4">
             <h1 className="py-2">HRegniez</h1>
             <Nav />
           </Section>
         </header>
-        <Section className="h-[90svh]">
           {children}
-        </Section>
       </body>
     </html>
   );

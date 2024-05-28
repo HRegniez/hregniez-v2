@@ -7,33 +7,18 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
-import { CardBody, CardContainer, CardItem } from "./3d-card"; 
+import Marquee from "../marqueDemo";
 
-// HeroParallax component to display a parallax effect with simple cards
+
 export const HeroParallax = () => {
-  // Create an array of 15 simple cards
-  const cards = Array.from({ length: 15 }, (_, i) => ({
-    title: `Card ${i + 1}`,
-  }));
-
-  // Split cards into three rows
-  const firstRow = cards.slice(0, 5);
-  const secondRow = cards.slice(5, 10);
-  const thirdRow = cards.slice(10, 15);
-
-  // Reference for the scroll container
   const ref = React.useRef(null);
-
-  // Get scroll progress for the parallax effect
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  // Spring configuration for smooth animations
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
-  // Define various animations based on scroll progress
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1000]),
     springConfig
@@ -47,7 +32,7 @@ export const HeroParallax = () => {
     springConfig
   );
   const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+    useTransform(scrollYProgress, [0, 0.3], [0.3, 1]),
     springConfig
   );
   const rotateZ = useSpring(
@@ -58,11 +43,10 @@ export const HeroParallax = () => {
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
   );
-
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -74,86 +58,29 @@ export const HeroParallax = () => {
         }}
         className=""
       >
-        {/* First row of 3D cards */}
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((card) => (
-            <CardContain
-              key={card.title}
-              translate={translateX}
-            >
-              <CardContainer className="bg-white">
-                  <CardBody>
-                      <CardItem className="text-red" translateZ={50}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={100}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={150}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={200}>{card.title}</CardItem>
-                  </CardBody>
-              </CardContainer>
-            </CardContain>
-          ))}
-        </motion.div>
-        {/* Second row of 3D cards */}
-        <motion.div className="flex flex-row mb-20 space-x-20">
-          {secondRow.map((card) => (
-            <CardContain
-              key={card.title}
-              translate={translateXReverse}
-            >
-              <CardContainer className="bg-white">
-                  <CardBody>
-                      <CardItem className="text-red" translateZ={50}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={100}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={150}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={200}>{card.title}</CardItem>
-                  </CardBody>
-              </CardContainer>
-            </CardContain>
-          ))}
-        </motion.div>
-        {/* Third row of 3D cards */}
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((card) => (
-            <CardContain
-              key={card.title}
-              translate={translateX}
-            >
-              <CardContainer className="bg-white">
-                  <CardBody>
-                      <CardItem className="text-red" translateZ={50}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={100}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={150}>{card.title}</CardItem>
-                      <CardItem className="text-red" translateZ={200}>{card.title}</CardItem>
-                  </CardBody>
-              </CardContainer>
-            </CardContain>
-          ))}
-        </motion.div>
+        <Marquee />
+
       </motion.div>
     </div>
   );
 };
 
-// Header component for the hero section
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        The Ultimate <br /> development studio
+    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+<h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+        HRegniez <br /> Web developer
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
+       Passionate about crafting seamless user experiences and interactive web applications.
       </p>
     </div>
   );
 };
 
-export const CardContain = ({
-  children,
+export const BasicCard = ({
   translate,
 }: {
-  children: React.ReactNode;
   translate: MotionValue<number>;
 }) => {
   return (
@@ -166,7 +93,13 @@ export const CardContain = ({
       }}
       className="group/product h-96 w-[30rem] relative flex-shrink-0"
     >
-      {children}
+      <div
+        className="object-cover h-full w-full object-left-top bg-red-500 absolute  inset-0"
+      ></div>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+        Basic Card
+      </h2>
     </motion.div>
   );
 };
