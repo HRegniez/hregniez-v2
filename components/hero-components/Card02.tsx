@@ -1,80 +1,55 @@
-import { Avatar, AvatarFallback } from "../ui/avatar"
-import { CardBody, CardContainer, CardItem } from "../magic-ui/3d-card"
+import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import AnimatedLanguages from "../AnimatedLanguages";
 
-import Link from "next/link"
-
-export default function Card_02() {
-  // Define theme colors based on custom color palette
-  const themeColors = {
-    primary: "text-[#cc2b5e]",
-    primaryForeground: "text-[#f7f7f7]",
-    secondary: "text-[#7d7d7d]",
-    background: "bg-[#3a1c71]", // Darker background color
-    hoverPrimary: "hover:bg-[#b32452]",
-    borderPrimary: "border-[#7d7d7d]"
-  };
-
+// Define the BentoWhatIDo component
+const Card_02 = ({
+  className,
+}: {
+  className?: string;
+}) => {
   return (
-    <CardContainer className="inter-var">
-      <CardBody className={`${themeColors.background} relative group/card ${themeColors.hoverPrimary} dark:${themeColors.hoverPrimary} dark:${themeColors.background} dark:border-${themeColors.borderPrimary}/20 border-${themeColors.borderPrimary}/10 w-[30rem] h-auto rounded-xl p-6 border`}>
-        <CardItem
-          as="p"
-          translateZ="300"
-          className={`text-xl w-full my-4 font-bold ${themeColors.primary} dark:${themeColors.primaryForeground} flex justify-center items-center`}
-        >
-          FAQs
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ="250"
-          className={`${themeColors.primaryForeground} text-xl max-w-sm mt-2 text-center w-full dark:${themeColors.primaryForeground} flex justify-center items-center font-bold`}
-        >
-          Henri regniez
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ="200"
-          className={`${themeColors.secondary} text-sm max-w-sm mt-1 text-center w-full dark:${themeColors.secondary} flex justify-center items-center`}
-        >
-          Grenoble, France
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ="230"
-          className={`${themeColors.primaryForeground} text-sm max-w-sm mt-4 text-center w-full dark:${themeColors.primaryForeground} flex justify-center items-center`}
-        >
-          "Web Developer and avid learner"
-        </CardItem>
-        <div className="flex flex-col justify-between items-center mt-4 gap-2">
-          <CardItem
-            translateZ={200}
-            as={Link}
-            href="https://github.com/hregniez"
-            target="__blank"
-            className={`px-4 py-2 w-full text-center rounded-l ${themeColors.background} dark:${themeColors.background} dark:${themeColors.primaryForeground} ${themeColors.primaryForeground} text-xs font-bold transition-colors duration-200 ease-in-out ${themeColors.hoverPrimary} dark:${themeColors.hoverPrimary}`}
-          >
-            Github
-          </CardItem>
-          <CardItem
-            translateZ={225}
-            as={Link}
-            href="https://www.linkedin.com/in/henri-regniez/"
-            target="__blank"
-            className={`px-4 py-2 w-full text-center rounded-l ${themeColors.background} dark:${themeColors.background} dark:${themeColors.primaryForeground} ${themeColors.primaryForeground} text-xs font-bold transition-colors duration-200 ease-in-out ${themeColors.hoverPrimary} dark:${themeColors.hoverPrimary}`}
-          >
-            LinkedIn
-          </CardItem>
-          <CardItem
-            translateZ={250}
-            as={Link}
-            href="https://www.frontendmentor.io/profile/HRegniez"
-            target="__blank"
-            className={`px-4 py-2 w-full text-center rounded-l ${themeColors.background} dark:${themeColors.background} dark:${themeColors.primaryForeground} ${themeColors.primaryForeground} text-xs font-bold transition-colors duration-200 ease-in-out ${themeColors.hoverPrimary} dark:${themeColors.hoverPrimary}`}
-          >
-            Frontend Mentor
-          </CardItem>
+    
+      <Link href="/profile/what-i-do" passHref 
+        className={cn(
+          "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl ",
+          // light styles
+          "bg-primary/50 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
+          // dark styles
+          "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ",
+          className,
+        )}
+      >
+        <div className="absolute inset-0">
+          <AnimatedLanguages />
         </div>
-      </CardBody>
-    </CardContainer>
+        {/* Main content container */}
+        <div className="pointer-events-none display-block w-full bg-primary z-10 absolute bottom-0 flex transform-gpu flex-col gap-1 p-6 transition-all duration-500 group-hover:-translate-y-12">
+          {/* Title */}
+          <h3 className="text-xl font-semibold text-secondary dark:text-neutral-3000">
+            What I Do
+          </h3>
+        </div>
+
+        {/* Call-to-action button container */}
+        <div
+          className={cn(
+            "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-100 group-hover:translate-y-0 group-hover:opacity-100 bg-primary z-10",
+          )}
+        >
+          <span className="pointer-events-auto flex items-center">
+            Creating beautiful and functional web applications.
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
+          </span>
+        </div>
+        {/* Background overlay */}
+        <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+      </Link>
+    
   )
 }
+
+export default Card_02;
+
