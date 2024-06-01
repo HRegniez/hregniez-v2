@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/magic-ui/marquee";
+import Card_01  from "./hero-components/Card01";
+import Card_02  from "./hero-components/Card02";
 
 const reviews = [
   {
@@ -82,33 +84,33 @@ const MarqueeDemo = () => {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background my-20 md:shadow-xl">
       <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {firstRow.map((review, index) => (
+          index % 2 === 0 ? <Card_02 key={review.username} /> : <Card_01 key={review.username} />
         ))}
       </Marquee>
       <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {secondRow.map((review, index) => (
+          index % 2 === 0 ? <Card_02 key={review.username} /> : <Card_01 key={review.username} />
         ))}
       </Marquee>
       <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {firstRow.map((review, index) => (
+          index % 2 === 0 ? <Card_02 key={review.username} /> : <Card_01 key={review.username} />
         ))}
       </Marquee>
       <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {secondRow.map((review, index) => (
+          index % 2 === 0 ? <Card_02 key={review.username} /> : <Card_01 key={review.username} />
         ))}
       </Marquee>
       <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {firstRow.map((review, index) => (
+          index % 2 === 0 ? <Card_02 key={review.username} /> : <Card_01 key={review.username} />
         ))}
       </Marquee>
       <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {secondRow.map((review, index) => (
+          index % 2 === 0 ? <Card_02 key={review.username} /> : <Card_01 key={review.username} />
         ))}
       </Marquee>
 

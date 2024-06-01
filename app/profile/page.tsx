@@ -60,10 +60,11 @@ import BentoBio from "@/components/BentoBio";
 
 export default async function BentoDemo() {
   return (
-    <BentoGrid className="lg:grid-rows-3 h-[100%]">
+    <BentoGrid className="lg:grid-rows-3 lg:grid-template-rows-[1fr 1fr 1fr] h-full">
       <BentoLanguages className="lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3 h-[100%]"/>
       <BentoWhatIDo className="lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4"/>
       <BentoBio className="lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3 bg-transparent"/>
+      
     </BentoGrid>
   );
 }
